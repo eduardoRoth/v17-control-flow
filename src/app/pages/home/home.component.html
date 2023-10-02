@@ -1,0 +1,19 @@
+<div class="add-new">
+  @if (showAddName()) {
+    <input type="text" [formControl]="newName" />
+    <button (click)="addName()">Add name</button>
+    <button (click)="showAddName.set(false)">Close</button>
+  } @else {
+    <button (click)="showAddName.set(true)">Add a new name</button>
+  }
+</div>
+
+<ul class="names">
+  @for (name of names(); track name) {
+    <li>
+      {{name}}
+    </li>
+  } @empty {
+    <li>Name list is empty</li>
+  }
+</ul>
